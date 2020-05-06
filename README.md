@@ -55,6 +55,8 @@
 - heroku run python manage.py migrate
 - heroku run python manage.py createsuperuser
 
+### Add config
+- heroku config:set SECRET_KEY='key'
 
 ## Features
 
