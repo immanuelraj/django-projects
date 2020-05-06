@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rooms List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="container-fluid">
+  <table class="table" style="margin-top: 20px;">
+      <thead class="thead">
+        <th scope="col">#</th>
+        <th scope="col">Room Name</th>
+        <th scope="col">Room Type</th>
+        <th scope="col">Occupancy</th>
+        <th scope="col">Wifi price( $ )</th>
+        <th scope="col">Breakfast price( $ )</th>
+        <th scope="col">A/C price( $ )</th>
+        <th scope="col">Couch price( $ )</th>
+        <th scope="col">Table price( $ )</th>
+        <th scope="col">TV price( $ )</th>
+        <th scope="col">Room price( $ )</th>
+        <th scope="col">Total price( $ )</th>
+      </thead>
+      <tbody>
+        {% with rooms=data%}
+        {% for room in rooms %}
+          <tr>
+            <th scope="col">{{ forloop.counter }}</th>
+            <td scope="col">{{ room.display_name }}</a></td>
+            <td scope="col">{{ room.room_type }}</a></td>
+            <td scope="col">{{ room.max_occupancy }}</td>
+            <td scope="col">{{ room.wifi_price}}</td>
+            <td scope="col">{{ room.bearkfast_price}}</td>
+            <td scope="col">{{ room.ac_price }}</td>
+            <td scope="col">{{ room.couch_price }}</td>
+            <td scope="col">{{ room.table_price }}</td>
+            <td scope="col">{{ room.tv_price }}</td>
+            <td scope="col">{{ room.room_price }}</td>
+            <td scope="col">{{ room.total_room_price }}</td>
+          </tr>
+        {% endfor %}
+        {% endwith %}
+      </tbody>
+  </table>
+</div>
+</html>
