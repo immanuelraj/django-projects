@@ -1,83 +1,153 @@
-## Project Setup
+### Project Setup
+* Install python
+    ```sh
+    brew install python3
+    ```
+* Install postgres
+    ```sh
+    brew install postgres
+    brew install postgresql
+    ```
+* Start postgres
+    ```sh
+    brew service start postgres
+    ```
+* Create db
+    ```sh
+    createdb masterdb
+    ```
+* Clone project
+    ```sh
+    git clone https://github.com/immanuelraj/django-project.git
+    cd django-project/
+    ```
+* Create virtualenv
+    ```sh
+    brew install mkvirtualenv
+    mkvirtualenv --python=/usr/local/bin/python3 django-project
+    workon django-project
+    ```
+* Install packages
+    ```sh
+    pip install -r requirements.txt
+    ```
+* To run the project
+    ```sh
+    cd project
+    python manage.py migrate
+    python manage.py collectstatic
+    python manage.py createsuperuser
+    python manage.py runserver
+    ```
 
-### Install python
- - brew install python3
-### Install postgres
- - brew install postgres
- - brew install postgresql
-### Start postgres
- - brew service start postgres
-### Create db
- - createdb masterdb
-### Clone project
- - git clone https://github.com/immanuelraj/django-project.git
- - cd django-project/
-### Create virtualenv
- - brew install mkvirtualenv
- - mkvirtualenv --python=/usr/local/bin/python3 django-project
- - workon django-project
-### Install packages
- - pip install -r requirements.txt
-### To run the project
- - cd project
- - python manage.py migrate
- - python manage.py collectstatic
- - python manage.py createsuperuser
- - python manage.py runserver
+### Docker Setup by docker-compose
 
+* Download and Install docker application on mac
 
-## Heroku Setup
+* Create docker-compose.yml file and Add the Instruction
 
-### Install Heroku
+* To run docker compose
+    ```sh
+    docker-compose up -d
+    ```
+* To stop docker compose
+    ```sh
+    docker-compose down
+    ```
+* connecting to django shell
+    ```sh
+    docker-compose exec web bash
+    python manage.py shell
+    ```
+* connecting to postgres
+    ```sh
+    docker-compose exec db bash
+    psql -U admin masterdb
+    ```
 
-- brew install heroku/brew/heroku
+### Docker Image and container
 
-### To Login to Heroku
+* Create Dockerfile and Add the Instruction
+* Create a docker image
+    ```sh
+    docker build -t myimage:1 .
+    ```
+* Create a docker container from image
+    ```sh
+    docker images
+    docker run imageid
+    ```
+* To clean up space used by docker
+    ```sh
+    docker system prune -a
+    docker volumes prune
+    ```
 
-- heroku login
+### Heroku Setup
 
-### Create heroku App
+* Install Heroku
+    ```sh
+    brew install heroku/brew/heroku
+    ```
+* To Login to Heroku
+    ```sh
+    heroku login
+    ```
+* Create heroku App
+    ```sh
+    heroku create django-project-app
+    ```
+* Install django-heroku package and add it in settings
+* Add Procfile under root directory
+* Add domain to allowed_host
+* To push to Heroku
+    ```sh
+    git push heroku master
+    ```
+* Basic Setup
+    ```sh
+    heroku run python manage.py migrate
+    heroku run python manage.py createsuperuser
+    ```
+* Add config
+    ```sh
+    heroku config:set SECRET_KEY='key'
+    ```
 
-- heroku create django-project-app
+### Features
 
-### Install django-heroku package and add it in settings
-
-### Add Procfile under root directory
-
-### Add domain to allowed_host
-
-### To push to Heroku
-
-- git push heroku master
-
-### Basic Setup
-
-- heroku run python manage.py migrate
-- heroku run python manage.py createsuperuser
-
-### Add config
-- heroku config:set SECRET_KEY='key'
-
-## Features
-
-### Create Dummy data
-- python manage.py create_dummy_data
-
-### User Activity API
-- https://django-project-app.herokuapp.com/activity/user-activity/
-- https://django-project-app.herokuapp.com/activity/user-activity/?search=vwyfj9k1gr
-- https://django-project-app.herokuapp.com/activity/user-activity/?page=2
-
-### To add hotel
-cd ../scripts
- - python add_hotel.py
- - https://django-project-app.herokuapp.com/admin/hotel/hotel/add/
-### To add room
- - python add_room.py
- - https://django-project-app.herokuapp.com/admin/hotel/room/add/
-### To view rooms
- - python room_list.py
- - https://django-project-app.herokuapp.com/hotel/room-list/
-### To view rooms by budget
- - python price_wise_room_list.py
- - https://django-project-app.herokuapp.com/hotel/room-list/?budget=50
+* Create Dummy data
+    ```sh
+    python manage.py create_dummy_data
+    ```
+* User Activity API
+    ```sh
+    https://django-project-app.herokuapp.com/activity/user-activity/
+    https://django-project-app.herokuapp.com/activity/user-activity/?search=vwyfj9k1gr
+    https://django-project-app.herokuapp.com/activity/user-activity/?page=2
+    ```
+* To add hotel
+    ```sh
+    cd ../scripts
+    python add_hotel.py
+    or
+    https://django-project-app.herokuapp.com/admin/hotel/hotel/add/
+    ```
+* To add room
+    ```sh
+    python add_room.py
+    or
+    https://django-project-app.herokuapp.com/admin/hotel/room/add/
+    ```
+* To view rooms
+    ```sh
+    python room_list.py
+    or
+    https://django-project-app.herokuapp.com/hotel/room-list/
+    ```
+* To view rooms by budget
+    ```sh
+    python price_wise_room_list.py
+    or
+    https://django-project-app.herokuapp.com/hotel/room-list/?budget=50
+    ```
