@@ -1,8 +1,8 @@
-from django.urls import path, include
-from .views import UserActivityListViewSet
+from django.urls import path
+from . import views
 
 app_name = 'activity'
 
 urlpatterns = [
-    path('user-activity/', UserActivityListViewSet.as_view()),
+    path('user-activity/', views.UserActivityListViewSet.as_view()),
 ]

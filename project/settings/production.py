@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hotel',
     'activity',
+    'users',
+    'crispy_forms',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'settings.urls'
 
-AUTH_USER_MODEL = 'activity.User'
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {
@@ -128,5 +131,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'home'
 
 django_heroku.settings(locals())

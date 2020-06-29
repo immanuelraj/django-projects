@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <div class="fadeIn first round" style="padding: 20px;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt-F5GQg8qB2fWquF1ltQvAT2Z8Dv5pJLb9w&usqp=CAU" id="icon" alt="User Icon" width="20px" height="200px" />
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group fadeIn second">
+          {{ form.username }}
+          {{ form.username.errors }}
+  
+      </div>
+      <div class="form-group fadeIn third">
+          {{ form.password }}
+          {{ form.password.errors }}
+      </div>
+      <div class="text-danger">
+        {{ form.non_field_errors }}
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+    <div id="formFooter">
+      <a class='underlineHover' href="{% url 'signup' %}">Need an account? Sign Up</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}

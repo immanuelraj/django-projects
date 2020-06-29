@@ -116,6 +116,20 @@
 
 ### Features
 
+* Login URL
+    ```sh
+    https://django-project-app.herokuapp.com/accounts/login/
+
+* SignUp URL
+    ```sh
+    https://django-project-app.herokuapp.com/accounts/signup/
+    ```
+
+* Portfolio
+    ```sh
+    https://django-project-app.herokuapp.com/
+    ```
+
 * Create Dummy data
     ```sh
     python manage.py create_dummy_data
