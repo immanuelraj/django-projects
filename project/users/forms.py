@@ -55,7 +55,6 @@ class UserForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        import pdb; pdb.set_trace()
         phone = self.cleaned_data.get('phone'),
         first_name = self.cleaned_data.get('first_name')
         last_name = self.cleaned_data.get('last_name')
