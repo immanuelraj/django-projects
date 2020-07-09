@@ -1,4 +1,4 @@
-### Project Setup
+### Project Setup for Mac
 * Install python
     ```sh
     brew install python3
@@ -39,6 +39,45 @@
     python manage.py createsuperuser
     python manage.py runserver
     ```
+    
+### Project Setup for Ubuntu
+* Install Python
+ ```sh
+ Sudo apt install python3.7
+ ```
+
+* Install postgres
+```sh
+sudo apt install postgresql postgresql-contrib
+sudo su postgres
+createdb masterdb
+ ```
+* Clone project
+```sh
+git clone https://github.com/immanuelraj/django-project.git
+cd django-project/
+ ```
+* Create virtualenv
+```sh
+sudo apt-get install python-pip
+sudo pip install virtualenv
+mkdir ~/.virtualenvs
+sudo pip install virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+. /usr/local/bin/virtualenvwrapper.sh
+mkvirtualenv django-project
+workon django-project
+pip install -r requirements.txt
+ ```
+* To run the project
+```sh
+cd project
+python manage.py migrate
+python manage.py collectstatic
+python manage.py createsuperuser
+python manage.py runserver
+ ```
+
 
 ### Docker Setup by docker-compose
 
@@ -118,16 +157,16 @@
 
 * Login URL
     ```sh
-    https://django-project-app.herokuapp.com/accounts/login/
+    https://immanuelraj.herokuapp.com/accounts/login/
 
 * SignUp URL
     ```sh
-    https://django-project-app.herokuapp.com/accounts/signup/
+    https://immanuelraj.herokuapp.com/accounts/signup/
     ```
 
 * Portfolio
     ```sh
-    https://django-project-app.herokuapp.com/
+    https://immanuelraj.herokuapp.com/
     ```
 
 * Create Dummy data
@@ -136,32 +175,32 @@
     ```
 * User Activity API
     ```sh
-    https://django-project-app.herokuapp.com/activity/user-activity/
-    https://django-project-app.herokuapp.com/activity/user-activity/?search=vwyfj9k1gr
-    https://django-project-app.herokuapp.com/activity/user-activity/?page=2
+    https://immanuelraj.herokuapp.com/activity/user-activity/
+    https://immanuelraj.herokuapp.com/activity/user-activity/?search=vwyfj9k1gr
+    https://immanuelraj.herokuapp.com/activity/user-activity/?page=2
     ```
 * To add hotel
     ```sh
     cd ../scripts
     python add_hotel.py
     or
-    https://django-project-app.herokuapp.com/admin/hotel/hotel/add/
+    https://immanuelraj.herokuapp.com/admin/hotel/hotel/add/
     ```
 * To add room
     ```sh
     python add_room.py
     or
-    https://django-project-app.herokuapp.com/admin/hotel/room/add/
+    https://immanuelraj.herokuapp.com/dmin/hotel/room/add/
     ```
 * To view rooms
     ```sh
     python room_list.py
     or
-    https://django-project-app.herokuapp.com/hotel/room-list/
+    https://immanuelraj.herokuapp.com/hotel/room-list/
     ```
 * To view rooms by budget
     ```sh
     python price_wise_room_list.py
     or
-    https://django-project-app.herokuapp.com/hotel/room-list/?budget=50
+    https://immanuelraj.herokuapp.com/hotel/room-list/?budget=50
     ```
